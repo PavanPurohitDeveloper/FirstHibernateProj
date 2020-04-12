@@ -12,14 +12,28 @@ public class HibernateTest {
 
 		UserDetails user = new UserDetails();
 		user.setUserName("First User");
-		user.setAddress("First users address");
+
+		Address homeAddress = new Address();
+		homeAddress.setStreet("Street Name");
+		homeAddress.setCity("City Name");
+		homeAddress.setState("State Name");
+		homeAddress.setPincode("555677");
+		
+		user.setHomeAddress(homeAddress);
 		user.setJoinedDate(new Date());
 		user.setDescription("First user Description");
 		
 		//second user
 		UserDetails user2 = new UserDetails();
 		user2.setUserName("Second User");
-		user2.setAddress("Second users address");
+		
+		Address address2 = new Address();
+		address2.setStreet("Street Name");
+		address2.setCity("City Name");
+		address2.setState("State Name");
+		address2.setPincode("555677");
+		
+		user2.setOfficeAddress(address2);
 		user2.setJoinedDate(new Date());
 		user2.setDescription("Second user Description");
 		

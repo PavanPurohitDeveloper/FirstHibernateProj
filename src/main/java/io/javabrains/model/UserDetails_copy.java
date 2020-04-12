@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="USER_DETAILS")
-public class UserDetails {
+public class UserDetails_copy {
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="USER_ID")
@@ -17,18 +17,7 @@ public class UserDetails {
 	@Temporal(TemporalType.DATE)
 	private Date joinedDate;
 	
-	@Embedded
-	@AttributeOverrides( {
-			@AttributeOverride(name="street", column=@Column(name="HOME_STREET_NAME")),
-			@AttributeOverride(name="city", column=@Column(name="HOME_CITY_NAME")),
-			@AttributeOverride(name="state", column=@Column(name="HOME_STATE_NAME")),
-			@AttributeOverride(name="pincode", column=@Column(name="HOME_PIN_CODE"))
-		}
-	)
-	private Address homeAddress;
-	
-	@Embedded
-	private Address officeAddress;
+	private String Address;
 	
 	@Lob
 	private String description;
@@ -57,20 +46,12 @@ public class UserDetails {
 		this.joinedDate = joinedDate;
 	}
 
-	public Address getHomeAddress() {
-		return homeAddress;
+	public String getAddress() {
+		return Address;
 	}
 
-	public void setHomeAddress(Address homeAddress) {
-		this.homeAddress = homeAddress;
-	}
-
-	public Address getOfficeAddress() {
-		return officeAddress;
-	}
-
-	public void setOfficeAddress(Address officeAddress) {
-		this.officeAddress = officeAddress;
+	public void setAddress(String address) {
+		Address = address;
 	}
 
 	public String getDescription() {
